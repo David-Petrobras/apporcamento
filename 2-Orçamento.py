@@ -31,8 +31,15 @@ st.set_page_config(
 # Fazer Orçamento
 def orcamento():
 
-    # Caminho para base de bens completa no meu computador
-    caminho_base_bens = "C:\\Users\\FUDO\\OneDrive - PETROBRAS\\Documentos\\Python\\Ferramenta de orçamentação\\Base de Bens Inteira - Copia.xlsx"
+   # Widget para upload de arquivo
+arquivo_enviado = st.file_uploader("Envie o arquivo Excel da base de bens", type=["xlsx"])
+
+if arquivo_enviado is not None:
+    # Carrega o arquivo Excel enviado
+    df = pd.read_excel(arquivo_enviado)
+    st.write(df)  # Exibe o dataframe na aplicação
+else:
+    st.warning("Por favor, envie o arquivo Excel da base de bens.")
 
     # Iniciar sessão com a base de bens para melhora de performance
     if 'base_bens' not in st.session_state:
