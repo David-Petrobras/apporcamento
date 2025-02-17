@@ -31,15 +31,13 @@ st.set_page_config(
 # Fazer Orçamento
 def orcamento():
 
-   # Widget para upload de arquivo
-arquivo_enviado = st.file_uploader("Envie o arquivo Excel da base de bens", type=["xlsx"])
+   # Obtém o diretório atual do script
+diretorio_atual = os.path.dirname(__file__)
+# Define o caminho relativo para o arquivo Excel
+caminho_base_bens = os.path.join(diretorio_atual, 'Base de Bens Inteira - Copia.xlsx')
 
-if arquivo_enviado is not None:
-    # Carrega o arquivo Excel enviado
-    df = pd.read_excel(arquivo_enviado)
-    st.write(df)  # Exibe o dataframe na aplicação
-else:
-    st.warning("Por favor, envie o arquivo Excel da base de bens.")
+# Carrega o arquivo Excel
+df = pd.read_excel(caminho_base_bens)
 
     # Iniciar sessão com a base de bens para melhora de performance
     if 'base_bens' not in st.session_state:
