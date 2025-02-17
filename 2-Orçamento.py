@@ -31,13 +31,13 @@ st.set_page_config(
 # Fazer Orçamento
 def orcamento():
 
-   # Obtém o diretório atual do script
-diretorio_atual = os.path.dirname(__file__)
-# Define o caminho relativo para o arquivo Excel
-caminho_base_bens = os.path.join(diretorio_atual, 'Base de Bens Inteira - Copia.xlsx')
+    # Obtém o diretório atual do script
+    diretorio_atual = os.path.dirname(__file__)
+    # Define o caminho relativo para o arquivo Excel
+    caminho_base_bens = os.path.join(diretorio_atual, 'Base de Bens Inteira - Copia.xlsx')
 
-# Carrega o arquivo Excel
-df = pd.read_excel(caminho_base_bens)
+    # Carrega o arquivo Excel
+    df = pd.read_excel(caminho_base_bens)
 
     # Iniciar sessão com a base de bens para melhora de performance
     if 'base_bens' not in st.session_state:
