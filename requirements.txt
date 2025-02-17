@@ -1,7 +1,7 @@
 streamlit
 pandas
 numpy
-st-aggrid
+streamlit-aggrid
 Pillow
 plotly
 streamlit-option-menu
